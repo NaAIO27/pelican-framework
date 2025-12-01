@@ -1,98 +1,99 @@
-# 鹈鹕框架 (Pelican Framework) 技术文档
-## 技术栈
+```markdown
+# Pelican Framework Technical Documentation
+## Tech Stack
 
-编程语言与框架：
+Programming Languages & Frameworks:
 ![Rust](https://img.shields.io/badge/Rust-000000?style=for-the-badge&logo=rust&logoColor=white)
 ![Tokio](https://img.shields.io/badge/Tokio-000000?style=for-the-badge&logo=tokio&logoColor=white)
 ![Async-Await](https://img.shields.io/badge/Async/Await-000000?style=for-the-badge&logo=asynchronous&logoColor=white)
 
-架构模式：
+Architecture Patterns:
 ![Pipeline-Filter](https://img.shields.io/badge/Pipeline_Filter_Architecture-0052CC?style=for-the-badge&logo=apachekafka&logoColor=white)
 ![EDA](https://img.shields.io/badge/Event_Driven-FF6F61?style=for-the-badge&logo=eventbrite&logoColor=white)
 ![Microservices](https://img.shields.io/badge/Microservices-FF9900?style=for-the-badge&logo=microservices&logoColor=white)
 
-数据处理：
+Data Processing:
 ![Data-Streaming](https://img.shields.io/badge/Data_Streaming-2496ED?style=for-the-badge&logo=apacheflink&logoColor=white)
 ![Real-Time](https://img.shields.io/badge/Real_Time-00A98F?style=for-the-badge&logo=clock&logoColor=white)
 ![Zero-Copy](https://img.shields.io/badge/Zero_Copy-8B0000?style=for-the-badge&logo=memory&logoColor=white)
 
-安全特性：
+Security Features:
 ![Encryption](https://img.shields.io/badge/End--to--End_Encryption-4A90E2?style=for-the-badge&logo=lock&logoColor=white)
 ![Integrity](https://img.shields.io/badge/Data_Integrity-32CD32?style=for-the-badge&logo=shield-check&logoColor=white)
 
-监控与可观测性：
+Monitoring & Observability:
 ![Metrics](https://img.shields.io/badge/Metrics_&_Monitoring-E95420?style=for-the-badge&logo=prometheus&logoColor=white)
 ![Observability](https://img.shields.io/badge/Observability-FF6B6B?style=for-the-badge&logo=datadog&logoColor=white)
 
-配置与部署：
+Configuration & Deployment:
 ![YAML](https://img.shields.io/badge/YAML_Config-000080?style=for-the-badge&logo=yaml&logoColor=white)
 ![JSON](https://img.shields.io/badge/JSON_Config-000000?style=for-the-badge&logo=json&logoColor=white)
 ![TOML](https://img.shields.io/badge/TOML_Config-000000?style=for-the-badge&logo=toml&logoColor=white)
 
-性能特性：
+Performance Features:
 ![High-Performance](https://img.shields.io/badge/High_Performance-00D8FF?style=for-the-badge&logo=speedtest&logoColor=white)
 ![Concurrent](https://img.shields.io/badge/Concurrent_Safe-FF6F00?style=for-the-badge&logo=concurrency&logoColor=white)
 ![Memory-Safe](https://img.shields.io/badge/Memory_Safe-8A2BE2?style=for-the-badge&logo=memory-safe&logoColor=white)
 
-模块化特性：
+Modularity Features:
 ![Modular](https://img.shields.io/badge/Modular_Design-FF69B4?style=for-the-badge&logo=module&logoColor=white)
 ![Plug-and-Play](https://img.shields.io/badge/Plug_and_Play-00C853?style=for-the-badge&logo=plugin&logoColor=white)
 ![Extensible](https://img.shields.io/badge/Extensible-6200EA?style=for-the-badge&logo=extension&logoColor=white)
 
-网络与通信：
+Networking & Communication:
 ![Network-Analysis](https://img.shields.io/badge/Network_Analysis-1E88E5?style=for-the-badge&logo=network&logoColor=white)
 ![Packet-Processing](https://img.shields.io/badge/Packet_Processing-FF9800?style=for-the-badge&logo=network&logoColor=white)
 ![Async-Channels](https://img.shields.io/badge/Async_Channels-795548?style=for-the-badge&logo=channel&logoColor=white)
 
-流量控制：
+Traffic Control:
 ![Rate-Limiting](https://img.shields.io/badge/Rate_Limiting-3F51B5?style=for-the-badge&logo=speedometer&logoColor=white)
 ![Backpressure](https://img.shields.io/badge/Backpressure_Control-FF5252?style=for-the-badge&logo=pressure&logoColor=white)
-## 项目概述
-鹈鹕框架是一个用Rust编写的高性能数据流处理框架，专注于实时数据流处理任务。其核心设计理念是"管道-过滤器"架构，通过可插拔的组件系统实现灵活的数据处理流水线。
 
-## 项目核心价值
-高性能：基于Tokio的异步运行时，零拷贝设计
+## Project Overview
+The Pelican Framework is a high-performance data stream processing framework written in Rust, focusing on real-time data stream processing tasks. Its core design philosophy is the "Pipeline-Filter" architecture, achieving flexible data processing pipelines through a pluggable component system.
 
-模块化：松耦合的组件设计，易于扩展和维护
+## Project Core Values
+High Performance: Based on Tokio's async runtime, zero-copy design
 
-安全性：内置数据加密和完整性检查机制
+Modular: Loosely coupled component design, easy to extend and maintain
 
-可观测性：完整的指标收集和监控系统
+Security: Built-in data encryption and integrity checking mechanisms
 
-## 架构设计
-核心架构模式：管道-过滤器
+Observability: Complete metrics collection and monitoring system
 
-```
-text
-数据源(Source) → 处理器(Processor) → 输出端(Sink)
-组件层级关系
-```
-
+## Architecture Design
+Core Architecture Pattern: Pipeline-Filter
 
 ```
-text
-lib.rs (顶层导出)
-├── pipeline.rs (管道协调器)
-├── sources/ (数据生产者)
-├── processors/ (数据转换器) 
-├── sinks/ (数据消费者)
-├── metrics/ (指标收集)
-├── ratelimit/ (流量控制)
-├── security/ (安全模块)
-└── config/ (配置管理)
-## 核心数据结构
-DataChunk - 数据流的基本单元
-rust
+Data Source(Source) → Processor(Processor) → Output(Sink)
+Component Hierarchy
+```
+
+```
+lib.rs (top-level exports)
+├── pipeline.rs (pipeline coordinator)
+├── sources/ (data producers)
+├── processors/ (data transformers) 
+├── sinks/ (data consumers)
+├── metrics/ (metrics collection)
+├── ratelimit/ (traffic control)
+├── security/ (security module)
+└── config/ (configuration management)
+```
+
+## Core Data Structures
+DataChunk - Basic unit of data stream
+````rust
 pub struct DataChunk {
-    pub data: Vec<u8>,      // 原始字节数据
-    pub timestamp: u64,     // 创建时间戳(UNIX秒)
-    pub sequence: u64,      // 全局序列号
+    pub data: Vec<u8>,      // Raw byte data
+    pub timestamp: u64,     // Creation timestamp (UNIX seconds)
+    pub sequence: u64,      // Global sequence number
 }
 ```
 
-## 组件系统详解
-### 1. 数据源 (Source) - 数据生产者
-核心Trait
+## Component System Details
+### 1. Source - Data Producer
+Core Trait
 
 ```
 rust
@@ -103,15 +104,15 @@ pub trait Source: Send + Sync {
 }
 ```
 
-内置实现
-MemorySource: 从内存数组生成数据流
+Built-in Implementations
+MemorySource: Generates data streams from memory arrays
 
-MockPacketSource: 模拟网络数据包生成器
+MockPacketSource: Simulated network packet generator
 
-RepeatingSource: 重复模式数据生成器
+RepeatingSource: Repeating pattern data generator
 
-### 2. 处理器 (Processor) - 数据转换器
-核心Trait
+### 2. Processor - Data Transformer
+Core Trait
 
 ```
 rust
@@ -120,40 +121,40 @@ pub trait Processor: Send + Sync {
     async fn process(&mut self, chunk: &mut DataChunk) -> anyhow::Result<ProcessResult>;
     fn name(&self) -> &str;
 }
-处理结果枚举
+```
+Processing Result Enum
+```
 rust
 pub enum ProcessResult {
-    Continue,  // 继续处理链
-    Skip,      // 跳过后续处理器
-    Stop,      // 停止整个管道
+    Continue,  // Continue processing chain
+    Skip,      // Skip subsequent processors
+    Stop,      // Stop entire pipeline
 }
 ```
 
-## 处理器分类
-基础处理器：
+## Processor Categories
+Basic Processors:
 
-FilterProcessor: 模式匹配过滤器
+FilterProcessor: Pattern matching filter
 
-UpperCaseProcessor: 大小写转换器
+UpperCaseProcessor: Case converter
 
-LogProcessor: 日志记录处理器
+LogProcessor: Logging processor
+## Network Analysis Processors:
 
-## 网络分析处理器：
+PacketStatsProcessor: Packet statistical analysis
 
-PacketStatsProcessor: 数据包统计分析
+IPAnalysisProcessor: IP address analyzer
 
-IPAnalysisProcessor: IP地址分析器
+ThreatDetectionProcessor: Threat detector
 
-ThreatDetectionProcessor: 威胁检测器
+## Security Processors:
 
-## 安全处理器：
+EncryptionProcessor: Data encryption processor
 
-EncryptionProcessor: 数据加密处理器
-
-DecryptionProcessor: 数据解密处理器
-
-### 3. 输出端 (Sink) - 数据消费者
-核心Trait
+DecryptionProcessor: Data decryption processor
+### 3. Sink - Data Consumer
+Core Trait
 
 ```
 rust
@@ -164,21 +165,20 @@ pub trait Sink: Send + Sync {
 }
 ```
 
-#### 输出端类型
-基础输出端：
+#### Sink Types
+Basic Sinks:
 
-ConsoleSink: 控制台输出
+ConsoleSink: Console output
 
-StatsSink: 统计信息输出
+StatsSink: Statistical information output
 
-#### 高级输出端：
+#### Advanced Sinks:
 
-MetricsSink: 性能指标输出
+MetricsSink: Performance metrics output
 
-SecureFileSink: 安全文件存储（支持完整性检查）
-
-### 4. 管道 (Pipeline) - 协调器
-构建器模式
+SecureFileSink: Secure file storage (supports integrity checking)
+### 4. Pipeline - Coordinator
+Builder Pattern
 
 ```
 rust
@@ -190,187 +190,185 @@ let pipeline = Pipeline::builder()
     .build();
 ```
 
-### 执行流程
-初始化所有组件
+### Execution Flow
+Initialize all components
 
-创建异步通道连接组件
+Create async channels to connect components
 
-启动数据源任务
+Start source tasks
 
-主循环接收并处理数据
+Main loop receives and processes data
 
-发送处理结果到输出端
+Send processed results to sinks
 
-清理和关闭
+Cleanup and shutdown
 
-## 核心模块详解
-### 安全模块 (security)
-设计目的：为数据流提供安全保障
+Core Module Details
 
-核心组件
-DataEncryptor: 简化版XOR加密器（生产环境应替换为AES）
+## Core Module Details
+### Security Module (security)
+Design Purpose: Provide security for data streams
 
-DataIntegrityChecker: 基于哈希的完整性检查器
+Core Components
+DataEncryptor: Simplified XOR encryptor (should be replaced with AES in production)
 
-SecurityConfig: 安全配置容器
+DataIntegrityChecker: Hash-based integrity checker
 
- 安全特性
-端到端数据加密
+SecurityConfig: Security configuration container
 
-数据完整性验证
+Security Features
+End-to-end data encryption
 
-可配置的安全策略
+Data integrity verification
 
-### 流量控制模块 (ratelimit)
-设计目的：防止系统过载，保证稳定运行
+Configurable security policies
 
- 核心组件
-RateLimiter: 基于令牌桶的速率限制器
+### Rate Limiting Module (ratelimit)
+Design Purpose: Prevent system overload, ensure stable operation
 
-BackpressureController: 背压控制器
+Core Components
+RateLimiter: Token bucket-based rate limiter
 
- 控制策略
-令牌桶算法实现速率限制
+BackpressureController: Backpressure controller
 
-队列监控实现背压控制
+Control Strategies
+Token bucket algorithm for rate limiting
 
-可配置的警告阈值
+Queue monitoring for backpressure control
 
-#### 指标收集模块 (metrics)
-设计目的：系统可观测性和性能监控
+Configurable warning thresholds
 
-组件层次
-MetricsCollector: 基础指标收集器
+#### Metrics Collection Module (metrics)
+Design Purpose: System observability and performance monitoring
 
-AdvancedMetricsCollector: 高级指标收集器
+Component Hierarchy
+MetricsCollector: Basic metrics collector
 
-收集指标
-处理吞吐量（数据包/秒）
+AdvancedMetricsCollector: Advanced metrics collector
 
-数据量统计（字节/秒）
+Collected Metrics
+Processing throughput (packets/sec)
 
-处理延迟分布
+Data volume statistics (bytes/sec)
 
-组件级性能指标
+Processing latency distribution
 
-错误率和失败统计
+Component-level performance metrics
 
-### 配置模块 (config)
-设计目的：支持声明式管道配置
+Error rates and failure statistics
 
-核心结构
-PipelineConfig: 完整管道配置
+### Configuration Module (config)
+Design Purpose: Support declarative pipeline configuration
 
-ComponentConfig: 组件配置基类
+Core Structures
+PipelineConfig: Complete pipeline configuration
 
-## 配置格式支持
-YAML（主要格式）
+ComponentConfig: Base component configuration class
+## Supported Configuration Formats
+YAML (primary format)
 
 JSON
 
 TOML
 
-### 异步设计模式
-基于Tokio的并发模型
-
+### Asynchronous Design Patterns
+Tokio-based concurrency model
 ```
 rust
-// 管道主循环
+// Pipeline main loop
 while let Some(mut chunk) = processor_rx.recv().await {
-    // 异步处理每个数据块
+    // Asynchronously process each data chunk
     for processor in &mut self.processors {
         processor.process(&mut chunk).await?;
     }
-    // 异步发送到输出端
+    // Asynchronously send to sinks
     for sink in &mut self.sinks {
         sink.send(chunk.clone()).await?;
     }
 }
 ```
 
-### 通道通信模式
-mpsc通道: 连接Source到Processor
+### Channel Communication Patterns
+mpsc channels: Connect Source to Processor
 
-广播通道: 支持多个Sink并行接收
+Broadcast channels: Support multiple Sinks receiving in parallel
 
-容量限制: 防止内存泄漏
+Capacity limits: Prevent memory leaks
 
-错误处理策略
-分层错误处理
-
+Error Handling Strategies
+Layered error handling
 ```
 rust
-// 组件级错误 - 继续处理其他数据
+/// Component-level errors - continue processing other data
 match processor.process(&mut chunk).await {
-    Ok(ProcessResult::Continue) => { /* 正常继续 */ }
-    Ok(ProcessResult::Skip) => { /* 跳过此数据 */ }
-    Ok(ProcessResult::Stop) => { /* 优雅停止 */ }
+    Ok(ProcessResult::Continue) => { /* Continue normally */ }
+    Ok(ProcessResult::Skip) => { /* Skip this data */ }
+    Ok(ProcessResult::Stop) => { /* Graceful stop */ }
     Err(e) => {
-        // 记录错误但继续运行
+        // Log error but continue running
         error!("Processor error: {}", e);
     }
 }
 
-// 管道级错误 - 整体失败
+// Pipeline-level errors - overall failure
 pub async fn run(mut self) -> anyhow::Result<()> {
-    // 管道运行逻辑
+    // Pipeline running logic
 }
 ```
 
-### 性能优化特性
-1. 零拷贝设计
-DataChunk在组件间传递时使用引用或克隆
+### Performance Optimization Features
+Zero-copy Design
+DataChunk passed between components using references or clones
 
-处理器直接在原数据上操作
+Processors operate directly on original data
 
-2. 异步流水线
-各阶段并行执行
+Asynchronous Pipeline
+Parallel execution of stages
 
-非阻塞I/O操作
+Non-blocking I/O operations
 
-3. 内存高效
-使用Vec<u8>存储二进制数据
+Memory Efficiency
+Using Vec<u8> for binary data storage
 
-及时释放已处理数据
+Timely release of processed data
 
-4. 并发安全
-所有组件实现Send + Sync
+Concurrency Safety
+All components implement Send + Sync
 
-使用Arc进行安全共享
+Using Arc for safe sharing
 
-## 扩展指南
-### 添加新数据源
-在sources/目录创建新文件
+## Extension Guide
+### Adding New Sources
+Create new file in sources/ directory
 
-实现Source trait
+Implement Source trait
 
-在sources/mod.rs中导出
+Export in sources/mod.rs
 
-在lib.rs中重新导出
+Re-export in lib.rs
 
-### 添加新处理器
-在processors/目录创建新文件
+### Adding New Processors
+Create new file in processors/ directory
 
-实现Processor trait
+Implement Processor trait
 
-返回适当的ProcessResult
+Return appropriate ProcessResult
 
-在processors/mod.rs中导出
+Export in processors/mod.rs
+### Adding New Sinks
+Create new file in sinks/ directory
 
-### 添加新输出端
-在sinks/目录创建新文件
+Implement Sink trait
 
-实现Sink trait
-
-在sinks/mod.rs中导出
+Export in sinks/mod.rs
 
 ## 配置示例
 YAML配置示例
 
 ```
 yaml
-name: "网络监控管道"
-description: "实时网络数据包分析和威胁检测"
+name: "Network Monitoring Pipeline"
+description: "Real-time network packet analysis and threat detection"
 
 sources:
   - name: "packet_source"
@@ -392,158 +390,155 @@ sinks:
     type: "MetricsSink"
 ```
 
-运行时特性
-## 启动流程
+# Runtime Features
+## Startup Flow
+```
+text
+1. Parse configuration -> 2. Build components -> 3. Connect pipeline -> 
+4. Start async tasks -> 5. Monitor operation -> 6. Graceful shutdown
+```
+
+## Monitoring Metrics
 
 ```
 text
-1. 解析配置 -> 2. 构建组件 -> 3. 连接管道 -> 
-4. 启动异步任务 -> 5. 监控运行 -> 6. 优雅关闭
+- System level: CPU/Memory usage
+- Pipeline level: Throughput/Latency
+- Component level: Processing volume/Error rate
 ```
 
-## 监控指标
+## Best Practices
+### 1. Component Design Principles
+Single responsibility: Each component does one thing
 
-```
-text
-- 系统级: CPU/内存使用率
-- 管道级: 吞吐量/延迟
-- 组件级: 处理量/错误率
-```
+Stateless design: Design as stateless processors whenever possible
 
-## 最佳实践
-### 1. 组件设计原则
-单一职责：每个组件只做一件事
+Clear interfaces: Clear input/output types
 
-无状态设计：尽量设计为无状态处理器
+### 2. Error Handling Principles
+Component-level errors don't affect overall pipeline
 
-明确接口：输入输出类型清晰
+Critical errors trigger graceful shutdown
 
-### 2. 错误处理原则
-组件级错误不影响整体管道
+Detailed logging for troubleshooting
 
-关键错误触发优雅关闭
+### 3. Performance Optimization Principles
+Avoid data copying, use reference passing
 
-详细日志记录便于排查
+Use async I/O operations
 
-### 3. 性能优化原则
-避免数据复制，使用引用传递
+Set appropriate channel buffer sizes
+## Troubleshooting
+Common Issues and Solutions
+Memory Leaks
 
-使用异步I/O操作
+Check if DataChunk is properly released
 
-合理设置通道缓冲区大小
+Monitor channel queue lengths
+## Performance Bottlenecks
 
-## 故障排查
-常见问题及解决
-内存泄漏
+Use MetricsSink to view performance metrics
 
-检查DataChunk是否正确释放
+Check processor chain length and complexity
 
-监控通道队列长度
+## Deadlock Risks
 
-## 性能瓶颈
+Avoid blocking operations in processors
 
-使用MetricsSink查看性能指标
+Use tokio::time::timeout for timeouts
 
-检查处理器链的长度和复杂度
-
-## 死锁风险
-
-避免在处理器中进行阻塞操作
-
-使用tokio::time::timeout设置超时
-
-# 项目结构映射
-## 物理结构
+# Project Structure Mapping
+## Physical Structure
 
 ```
 text
 src/
-├── lib.rs                    # 公共接口和核心类型
-├── pipeline.rs              # 管道实现
-├── processors/              # 处理器模块
-│   ├── mod.rs              # 处理器基类和导出
-│   ├── packet_processor.rs # 网络处理器
-│   └── security_processor.rs # 安全处理器
-├── sources/                 # 数据源模块
-│   ├── mod.rs              # 数据源基类和导出
-│   └── packet_source.rs    # 网络数据源
-├── sinks/                  # 输出端模块
-│   ├── mod.rs              # 输出端基类和导出
-│   ├── advanced_sinks.rs   # 高级输出端
-│   └── security_sink.rs    # 安全输出端
-├── metrics/                # 指标模块
-│   ├── mod.rs              # 基础指标收集器
-│   └── advanced.rs         # 高级指标收集器
-├── ratelimit/              # 流量控制模块
+├── lib.rs                    # Public interface and core types
+├── pipeline.rs              # Pipeline implementation
+├── processors/              # Processor module
+│   ├── mod.rs              # Processor base classes and exports
+│   ├── packet_processor.rs # Network processors
+│   └── security_processor.rs # Security processors
+├── sources/                 # Source module
+│   ├── mod.rs              # Source base classes and exports
+│   └── packet_source.rs    # Network sources
+├── sinks/                  # Sink module
+│   ├── mod.rs              # Sink base classes and exports
+│   ├── advanced_sinks.rs   # Advanced sinks
+│   └── security_sink.rs    # Security sinks
+├── metrics/                # Metrics module
+│   ├── mod.rs              # Basic metrics collector
+│   └── advanced.rs         # Advanced metrics collector
+├── ratelimit/              # Rate limiting module
 │   └── mod.rs
-├── security/               # 安全模块
+├── security/               # Security module
 │   └── mod.rs
-└── config/                 # 配置模块
+└── config/                 # Configuration module
     └── mod.rs
 ```
 
-## 逻辑依赖关系
+## Logical Dependencies
 
 ```
 text
-          lib.rs (入口点)
+          lib.rs (entry point)
             │
-            ├── pipeline (管道协调)
-            │     ├── sources (数据输入)
-            │     ├── processors (数据处理)
-            │     └── sinks (数据输出)
+            ├── pipeline (pipeline coordination)
+            │     ├── sources (data input)
+            │     ├── processors (data processing)
+            │     └── sinks (data output)
             │
-            ├── metrics (监控)
-            ├── ratelimit (流量控制)
-            ├── security (安全)
-            └── config (配置)
+            ├── metrics (monitoring)
+            ├── ratelimit (traffic control)
+            ├── security (security)
+            └── config (configuration)
 ```
 
-# 设计模式总结
-构建者模式：PipelineBuilder
+# Design Pattern Summary
+Builder Pattern: PipelineBuilder
 
-策略模式：可插拔的Processor实现
+Strategy Pattern: Pluggable Processor implementations
 
-观察者模式：多个Sink同时接收数据
+Observer Pattern: Multiple Sinks receiving data simultaneously
 
-管道-过滤器模式：整体架构模式
+Pipeline-Filter Pattern: Overall architecture pattern
 
-装饰器模式：处理器链式组合
+Decorator Pattern: Processor chain composition
 
-## 安全注意事项
-生产环境建议
-加密模块：替换XOR加密为AES-256-GCM
+## Security Considerations
+Production Environment Recommendations
+Encryption module: Replace XOR encryption with AES-256-GCM
 
-密钥管理：使用安全的密钥管理系统
+Key management: Use secure key management systems
 
-完整性验证：使用HMAC替代简单哈希
+Integrity verification: Use HMAC instead of simple hashing
 
-访问控制：添加组件级别的权限控制
+Access control: Add component-level permission control
+## Performance Tuning Recommendations
+Buffer sizes: Adjust channel buffers based on data volume
 
-## 性能调优建议
-缓冲区大小：根据数据量调整通道缓冲区
+Concurrency: Adjust task count based on CPU cores
 
-并发度：根据CPU核心数调整任务数量
+Batch processing: Batch process large numbers of small packets
 
-批处理：对大量小数据包进行批处理
+Memory pools: Implement object pools for DataChunk
 
-内存池：为DataChunk实现对象池
+## Future Expansion Directions
+Short-term Goals
+Add more built-in components
 
-## 未来扩展方向
-短期目标
-添加更多内置组件
+Complete configuration system
 
-完善配置系统
+Add performance benchmark suite
 
-添加性能基准测试套件
+Long-term Goals
+Distributed processing support
 
-长期目标
-分布式处理支持
+WebAssembly integration
 
-WebAssembly集成
+Visual monitoring interface
 
-可视化监控界面
+Plugin system support
 
-插件系统支持
 
-项目维护者：确保所有新组件遵循现有设计模式，保持API一致性，在添加新功能时更新此文档。
+Project Maintainers: Ensure all new components follow existing design patterns, maintain API consistency, and update this documentation when adding new features.
