@@ -3,8 +3,8 @@ name = "pelican-framework"
 version = "0.2.0"
 edition = "2021"
 description = "A high-performance data streaming framework in Rust"
-authors = ["Your Name <your.email@example.com>"]
-license = "MIT OR Apache-2.0"
+authors = ["NaAIO2 <soymilkkitten@163.com>"]
+license = "MIT"
 
 [dependencies]
 tokio = { version = "1.0", features = ["full"] }
