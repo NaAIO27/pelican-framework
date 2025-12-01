@@ -1,0 +1,37 @@
+name: "网络安全监控管道"
+description: "监控网络流量并进行安全分析"
+max_queue_size: 10000
+timeout_seconds: 300
+
+sources:
+  - name: "网络数据包源"
+    type: "MockPacketSource"
+    params:
+      packet_count: 10000
+      delay_ms: 0
+
+processors:
+  - name: "数据包统计"
+    type: "PacketStatsProcessor"
+    params: {}
+
+  - name: "威胁检测"
+    type: "ThreatDetectionProcessor"
+    params: {}
+
+  - name: "数据加密"
+    type: "EncryptionProcessor"
+    params:
+      key: "base64_encoded_key_here"
+
+sinks:
+  - name: "控制台输出"
+    type: "ConsoleSink"
+    params: {}
+
+  - name: "安全文件存储"
+    type: "SecureFileSink"
+    params:
+      file_path: "secure_output.bin"
+      enable_encryption: true
+      enable_integrity_check: true

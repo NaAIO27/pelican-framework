@@ -1,0 +1,49 @@
+[package]
+name = "pelican-framework"
+version = "0.2.0"
+edition = "2021"
+description = "A high-performance data streaming framework in Rust"
+authors = ["Your Name <your.email@example.com>"]
+license = "MIT OR Apache-2.0"
+
+[dependencies]
+tokio = { version = "1.0", features = ["full"] }
+anyhow = "1.0"
+tracing = "0.1"
+tracing-subscriber = "0.3"
+bytes = "1.0"
+async-trait = "0.1"
+thiserror = "1.0"
+serde = { version = "1.0", features = ["derive"] }
+serde_json = "1.0"
+serde_yaml = "0.9.34+deprecated"
+
+# 移除导致问题的复杂依赖
+# ring = "0.17"  # 暂时移除，避免编译问题
+# serde_yaml = "0.9"
+# toml = "0.8"
+# config = "0.13"
+
+[[example]]
+name = "basic"
+path = "examples/basic.rs"
+
+[[example]]
+name = "network"
+path = "examples/network.rs"
+
+[[example]]
+name = "performance"
+path = "examples/performance.rs"
+
+[[example]]
+name = "benchmark"
+path = "examples/benchmark.rs"
+
+[[example]]
+name = "secure_pipeline"
+path = "examples/secure_pipeline.rs"
+
+[[example]]
+name = "config_example"
+path = "examples/config_example.rs"
