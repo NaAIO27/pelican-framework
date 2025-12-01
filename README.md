@@ -1,4 +1,27 @@
 # 鹈鹕框架 (Pelican Framework) 技术文档
+## 技术栈
+编程语言与框架：
+![Rust](https://img.shields.io/badge/Rust-000000?style=for-the-badge&logo=rust&logoColor=white)
+![Tokio](https://img.shields.io/badge/Tokio-000000?style=for-the-badge&logo=tokio&logoColor=white)
+![Async-Await](https://img.shields.io/badge/Async/Await-000000?style=for-the-badge&logo=asynchronous&logoColor=white)
+架构模式：
+![Pipeline-Filter](https://img.shields.io/badge/Pipeline_Filter_Architecture-0052CC?style=for-the-badge&logo=apachekafka&logoColor=white)
+![EDA](https://img.shields.io/badge/Event_Driven-FF6F61?style=for-the-badge&logo=eventbrite&logoColor=white)
+![Microservices](https://img.shields.io/badge/Microservices-FF9900?style=for-the-badge&logo=microservices&logoColor=white)
+数据处理：
+![Data-Streaming](https://img.shields.io/badge/Data_Streaming-2496ED?style=for-the-badge&logo=apacheflink&logoColor=white)
+![Real-Time](https://img.shields.io/badge/Real_Time-00A98F?style=for-the-badge&logo=clock&logoColor=white)
+![Zero-Copy](https://img.shields.io/badge/Zero_Copy-8B0000?style=for-the-badge&logo=memory&logoColor=white)
+安全特性：
+![Encryption](https://img.shields.io/badge/End-to-End_Encryption-4A90E2?style=for-the-badge&logo=key&logoColor=white)
+![Integrity](https://img.shields.io/badge/Data_Integrity-32CD32?style=for-the-badge&logo=shield-check&logoColor=white)
+监控与可观测性：
+![Metrics](https://img.shields.io/badge/Metrics_&_Monitoring-E95420?style=for-the-badge&logo=prometheus&logoColor=white)
+![Observability](https://img.shields.io/badge/Observability-FF6B6B?style=for-the-badge&logo=datadog&logoColor=white)
+配置与部署：
+![YAML](https://img.shields.io/badge/YAML_Config-000080?style=for-the-badge&logo=yaml&logoColor=white)
+![JSON](https://img.shields.io/badge/JSON_Config-000000?style=for-the-badge&logo=json&logoColor=white)
+![TOML](https://img.shields.io/badge/TOML_Config-000000?style=for-the-badge&logo=toml&logoColor=white)
 ## 项目概述
 鹈鹕框架是一个用Rust编写的高性能数据流处理框架，专注于实时数据流处理任务。其核心设计理念是"管道-过滤器"架构，通过可插拔的组件系统实现灵活的数据处理流水线。
 
