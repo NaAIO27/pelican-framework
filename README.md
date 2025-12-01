@@ -1,4 +1,3 @@
-```markdown
 # Pelican Framework Technical Documentation
 ## Tech Stack
 
@@ -542,3 +541,4 @@ Plugin system support
 
 
 Project Maintainers: Ensure all new components follow existing design patterns, maintain API consistency, and update this documentation when adding new features.
+
