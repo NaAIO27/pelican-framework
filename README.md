@@ -27,6 +27,25 @@
 ![YAML](https://img.shields.io/badge/YAML_Config-000080?style=for-the-badge&logo=yaml&logoColor=white)
 ![JSON](https://img.shields.io/badge/JSON_Config-000000?style=for-the-badge&logo=json&logoColor=white)
 ![TOML](https://img.shields.io/badge/TOML_Config-000000?style=for-the-badge&logo=toml&logoColor=white)
+
+性能特性：
+![High-Performance](https://img.shields.io/badge/High_Performance-00D8FF?style=for-the-badge&logo=speedtest&logoColor=white)
+![Concurrent](https://img.shields.io/badge/Concurrent_Safe-FF6F00?style=for-the-badge&logo=concurrency&logoColor=white)
+![Memory-Safe](https://img.shields.io/badge/Memory_Safe-8A2BE2?style=for-the-badge&logo=memory-safe&logoColor=white)
+
+模块化特性：
+![Modular](https://img.shields.io/badge/Modular_Design-FF69B4?style=for-the-badge&logo=module&logoColor=white)
+![Plug-and-Play](https://img.shields.io/badge/Plug_and_Play-00C853?style=for-the-badge&logo=plugin&logoColor=white)
+![Extensible](https://img.shields.io/badge/Extensible-6200EA?style=for-the-badge&logo=extension&logoColor=white)
+
+网络与通信：
+![Network-Analysis](https://img.shields.io/badge/Network_Analysis-1E88E5?style=for-the-badge&logo=network&logoColor=white)
+![Packet-Processing](https://img.shields.io/badge/Packet_Processing-FF9800?style=for-the-badge&logo=network&logoColor=white)
+![Async-Channels](https://img.shields.io/badge/Async_Channels-795548?style=for-the-badge&logo=channel&logoColor=white)
+
+流量控制：
+![Rate-Limiting](https://img.shields.io/badge/Rate_Limiting-3F51B5?style=for-the-badge&logo=speedometer&logoColor=white)
+![Backpressure](https://img.shields.io/badge/Backpressure_Control-FF5252?style=for-the-badge&logo=pressure&logoColor=white)
 ## 项目概述
 鹈鹕框架是一个用Rust编写的高性能数据流处理框架，专注于实时数据流处理任务。其核心设计理念是"管道-过滤器"架构，通过可插拔的组件系统实现灵活的数据处理流水线。
 
