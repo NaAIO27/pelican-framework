@@ -17,6 +17,7 @@
 ![Zero-Copy](https://img.shields.io/badge/Zero_Copy-8B0000?style=for-the-badge&logo=memory&logoColor=white)
 
 安全特性：
+![Encryption](https://img.shields.io/badge/End-to-End_Encryption-4A90E2?style=for-the-badge&logo=key&logoColor=white)
 ![Integrity](https://img.shields.io/badge/Data_Integrity-32CD32?style=for-the-badge&logo=shield-check&logoColor=white)
 
 监控与可观测性：
